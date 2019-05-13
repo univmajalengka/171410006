@@ -1,10 +1,9 @@
-171410006
+#171410006
+**Deden Awaludin**
 
-Deden Awaludin
+:e-mail:deden_awaludin99@yahoo.com
 
-deden_awaludin99@yahoo.com:email:
-
-087724102100:telephone:
+:telephone:087724102100
 
 Courses :
 Sistem Basis Data Lanjut 4A
