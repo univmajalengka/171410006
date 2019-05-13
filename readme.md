@@ -1,4 +1,4 @@
-#171410006#
+171410006
 Deden Awaludin
 :email:deden_awaludin99@yahoo.com
 :telephone:087724102100
