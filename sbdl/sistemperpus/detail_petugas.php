@@ -61,7 +61,7 @@ include("connection.php");
         <tr>
         <td><?php echo"$no.";?></td>
         <td><?php echo"$r[id_petugas]";?></td>
-        <td><?php echo"$r[nama]";?></td>
+        <td><?php echo"$r[nama_pet]";?></td>
         <td><?php echo "$r[tempat_lahir]";?></td>
         <td><?php echo "$r[tanggal_lahir]";?></td>
         <td><?php echo "$r[jenis_kelamin]";?></td>

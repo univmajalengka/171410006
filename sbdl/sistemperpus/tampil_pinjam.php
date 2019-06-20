@@ -40,18 +40,16 @@ include("connection.php");
       <tr>
         <th>No</th>
       	<th>ID</th>
-        <th>Kode Pengembalian</th>
-        <th>Nama Lengkap</th>
-        <th>Tanggal Pinjam</th>
-        <th>Batas Kembali</th>
+        <th>Nama Anggota</th>
         <th>Id Buku</th>
-        <th>Jumlah Buku</th>
+        <th>Judul Buku</th>
         <th>Id Petugas</th>
+        <th>Nama Petugas</th>
         <th>Tools</th>
       </tr>
     <?php
     $no=1;
-    $query=("SELECT * FROM peminjaman");
+    $query=("SELECT * FROM view_peminjaman");
     $lihat = mysqli_query($con, $query) or die('Error, query failed. ' . mysqli_error());
     $jml_data=mysqli_num_rows($lihat);
     while($r=mysqli_fetch_array($lihat)){
@@ -59,13 +57,11 @@ include("connection.php");
       <tr>
         <td><?php echo"$no.";?></td>
         <td><?php echo"$r[id_anggota]";?></td>
-        <td><?php echo"$r[kode_peminjaman]";?></td>
-        <td><?php echo "$r[nama]";?></td>
-        <td><?php echo "$r[tanggal_pinjam]";?></td>
-        <td><?php echo "$r[batas_kembali]";?></td>
+        <td><?php echo "$r[nama_ang]";?></td>
         <td><?php echo "$r[id_buku]";?></td>
-        <td><?php echo "$r[jumlah_buku]";?></td>
+        <td><?php echo "$r[judul_buku]";?></td>
         <td><?php echo "$r[id_petugas]";?></td>
+        <td><?php echo "$r[nama_pet]";?></td>
         <td align="center">
             <a href="detail_pinjam.php?halaman=petugas_detail&id=<?php echo"$r[kode_peminjaman]";?>" title="Detail Data" class="btn btn-info btn-sm">Detail<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>  
             <a href="delete_pinjam.php?halaman=pinjam_delete&kode_peminjaman=<?=$r['kode_peminjaman'];?>" title="Hapus Data" class="btn btn-danger btn-sm">Hapus<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>

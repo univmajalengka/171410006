@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['submit'])) {
 include "connection.php";
-  $nama  = $_POST['nama']; 
+  $nama  = $_POST['nama_pet']; 
   $tmp  = $_POST['tempat_lahir'];
   $tl  = $_POST['tanggal_lahir'];
   $jk  = $_POST['jenis_kelamin'];

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Waktu pembuatan: 11 Bulan Mei 2019 pada 04.48
+-- Waktu pembuatan: 20 Jun 2019 pada 09.52
 -- Versi server: 5.7.24
--- Versi PHP: 7.3.1
+-- Versi PHP: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `anggota`;
 CREATE TABLE IF NOT EXISTS `anggota` (
   `id_anggota` int(15) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(60) NOT NULL,
+  `nama_ang` varchar(60) NOT NULL,
   `tempat_lahir` varchar(20) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `jenis_kelamin` varchar(15) NOT NULL,
@@ -44,14 +44,14 @@ CREATE TABLE IF NOT EXISTS `anggota` (
   `berlaku_hingga` date NOT NULL,
   `keterangan` varchar(25) NOT NULL,
   PRIMARY KEY (`id_anggota`),
-  KEY `nama` (`nama`)
+  KEY `nama` (`nama_ang`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `anggota`
 --
 
-INSERT INTO `anggota` (`id_anggota`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `jurusan`, `fakultas`, `telepon`, `alamat`, `tanggal_masuk`, `berlaku_hingga`, `keterangan`) VALUES
+INSERT INTO `anggota` (`id_anggota`, `nama_ang`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `jurusan`, `fakultas`, `telepon`, `alamat`, `tanggal_masuk`, `berlaku_hingga`, `keterangan`) VALUES
 (1, 'drian', 'jakarta', '1995-03-04', 'L', 'islam', 'informatika', 'teknik', '087223145667', 'desa beber', '2019-03-01', '2019-09-01', ''),
 (2, 'andi', 'majalengka', '1997-02-03', 'L', 'Islam', 'sipil', 'teknik', '082314667009', 'desa kertasari', '2019-03-02', '2019-09-02', ''),
 (3, 'linda', 'sumedang', '2000-01-07', 'P', 'islam', 'informatika', 'teknik', '089776543212', 'desa jatitengah', '2019-03-03', '2019-09-03', ''),
@@ -112,7 +112,7 @@ DROP TABLE IF EXISTS `peminjaman`;
 CREATE TABLE IF NOT EXISTS `peminjaman` (
   `id_anggota` int(15) NOT NULL,
   `kode_peminjaman` int(15) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(60) NOT NULL,
+  `nama_ang` varchar(60) NOT NULL,
   `tanggal_pinjam` date NOT NULL,
   `batas_kembali` date NOT NULL,
   `id_buku` int(15) NOT NULL,
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `peminjaman` (
   KEY `batas_kembali` (`batas_kembali`),
   KEY `id_petugas` (`id_petugas`),
   KEY `jumlah_buku` (`jumlah_buku`),
-  KEY `nama` (`nama`),
+  KEY `nama` (`nama_ang`),
   KEY `id_anggota` (`id_anggota`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `peminjaman` (
 -- Dumping data untuk tabel `peminjaman`
 --
 
-INSERT INTO `peminjaman` (`id_anggota`, `kode_peminjaman`, `nama`, `tanggal_pinjam`, `batas_kembali`, `id_buku`, `jumlah_buku`, `id_petugas`) VALUES
+INSERT INTO `peminjaman` (`id_anggota`, `kode_peminjaman`, `nama_ang`, `tanggal_pinjam`, `batas_kembali`, `id_buku`, `jumlah_buku`, `id_petugas`) VALUES
 (1, 21, 'drian', '2019-04-01', '2019-04-11', 111, 1, 11),
 (2, 22, 'andi', '2019-04-01', '2019-04-11', 112, 1, 11),
 (3, 23, 'linda', '2019-04-01', '2019-04-11', 113, 1, 11),
@@ -194,7 +194,7 @@ INSERT INTO `pengembalian` (`id_anggota`, `kode_peminjaman`, `nama`, `id_buku`, 
 DROP TABLE IF EXISTS `petugas`;
 CREATE TABLE IF NOT EXISTS `petugas` (
   `id_petugas` int(15) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(60) NOT NULL,
+  `nama_pet` varchar(60) NOT NULL,
   `tempat_lahir` varchar(20) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `jenis_kelamin` varchar(15) NOT NULL,
@@ -209,8 +209,52 @@ CREATE TABLE IF NOT EXISTS `petugas` (
 -- Dumping data untuk tabel `petugas`
 --
 
-INSERT INTO `petugas` (`id_petugas`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `telepon`, `status`, `alamat`) VALUES
+INSERT INTO `petugas` (`id_petugas`, `nama_pet`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `telepon`, `status`, `alamat`) VALUES
 (11, 'eko julianto', 'majalengka', '1965-04-23', 'L', 'islam', '087723433190', 'nikah', 'desa kasokandel');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in struktur untuk tampilan `view_anggota`
+-- (Lihat di bawah untuk tampilan aktual)
+--
+DROP VIEW IF EXISTS `view_anggota`;
+CREATE TABLE IF NOT EXISTS `view_anggota` (
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in struktur untuk tampilan `view_peminjaman`
+-- (Lihat di bawah untuk tampilan aktual)
+--
+DROP VIEW IF EXISTS `view_peminjaman`;
+CREATE TABLE IF NOT EXISTS `view_peminjaman` (
+`id_anggota` int(15)
+,`nama_ang` varchar(60)
+,`id_buku` int(15)
+,`id_petugas` int(15)
+,`judul_buku` varchar(60)
+,`nama_pet` varchar(60)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur untuk view `view_anggota`
+--
+DROP TABLE IF EXISTS `view_anggota`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_anggota`  AS  select `a`.`id_anggota` AS `id_anggota`,`c`.`nama` AS `nama`,`a`.`jurusan` AS `jurusan`,`a`.`fakultas` AS `fakultas` from (`anggota` `a` join `peminjaman` `c` on((`c`.`id_anggota` = `a`.`id_anggota`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur untuk view `view_peminjaman`
+--
+DROP TABLE IF EXISTS `view_peminjaman`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_peminjaman`  AS  select `a`.`id_anggota` AS `id_anggota`,`a`.`nama_ang` AS `nama_ang`,`a`.`id_buku` AS `id_buku`,`a`.`id_petugas` AS `id_petugas`,`b`.`judul_buku` AS `judul_buku`,`c`.`nama_pet` AS `nama_pet` from ((`peminjaman` `a` join `buku` `b` on((`b`.`id_buku` = `a`.`id_buku`))) join `petugas` `c` on((`c`.`id_petugas` = `a`.`id_petugas`))) ;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
