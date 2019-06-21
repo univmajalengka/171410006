@@ -63,8 +63,8 @@ include("connection.php");
         <td><?php echo "$r[id_petugas]";?></td>
         <td><?php echo "$r[nama_pet]";?></td>
         <td align="center">
-            <a href="detail_pinjam.php?halaman=petugas_detail&id=<?php echo"$r[kode_peminjaman]";?>" title="Detail Data" class="btn btn-info btn-sm">Detail<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>  
-            <a href="delete_pinjam.php?halaman=pinjam_delete&kode_peminjaman=<?=$r['kode_peminjaman'];?>" title="Hapus Data" class="btn btn-danger btn-sm">Hapus<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            <a href="detail_pinjam.php?halaman=petugas_detail&id=<?php echo"$r[id_anggota]";?>" title="Detail Data" class="btn btn-info btn-sm">Detail<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>  
+            <a href="delete_pinjam.php?halaman=pinjam_delete&id_anggota=<?=$r['id_anggota'];?>" title="Hapus Data" class="btn btn-danger btn-sm">Hapus<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
             
     </tr>
 <?php 

@@ -1,7 +1,7 @@
 
 <?php
 include 'connection.php';
-$id = $_GET['id_petugas'];
+$id = $_GET['id_anggota'];
 $sql = "DELETE FROM pengembalian WHERE id_anggota='$id'";
 $res = mysqli_query($con, $sql);
 if ($res) {

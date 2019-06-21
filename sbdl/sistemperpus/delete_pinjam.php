@@ -1,8 +1,8 @@
 
 <?php
 include 'connection.php';
-$kd = $_GET['kode_peminjaman'];
-$sql = "DELETE FROM peminjamam WHERE kode_peminjaman='$kd'";
+$id = $_GET['id_anggota'];
+$sql = "DELETE FROM view_peminjaman WHERE id_anggota='$id'";
 $res = mysqli_query($con, $sql);
 if ($res) {
 ?>

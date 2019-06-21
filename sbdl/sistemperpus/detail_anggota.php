@@ -76,7 +76,7 @@ include("connection.php");
         <td><?php echo "$r[berlaku_hingga]";?></td>
         <td><?php echo "$r[keterangan]";?></td>
         <td align="center"> 
-            <a  href= "delete_user.php?halaman=user_delete&id_user=<?= $r['id_user'];?>" title="Hapus Data" class="btn btn-danger btn-sm">Hapus Data<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            <a  href= "delete_anggota.php?halaman=user_delete&id_anggota=<?= $r['id_anggota'];?>" title="Hapus Data" class="btn btn-danger btn-sm">Hapus Data<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
         </td>
     
     </tr>

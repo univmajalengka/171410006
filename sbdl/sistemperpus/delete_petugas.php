@@ -2,7 +2,7 @@
 <?php
 include 'connection.php';
 $id = $_GET['id_petugas'];
-$sql = "DELETE FROM petugas WHERE id_anggota='$id'";
+$sql = "DELETE FROM petugas WHERE id_petugas='$id'";
 $res = mysqli_query($con, $sql);
 if ($res) {
 ?>

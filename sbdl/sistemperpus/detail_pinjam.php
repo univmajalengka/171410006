@@ -39,19 +39,17 @@ include("connection.php");
    <tr>
         <th scope="col">No</th>
         <th scope="col">ID</th>
-        <th scope="col">Kode Pengembalian</th>
-        <th scope="col">Nama Lengkap</th>
-        <th scope="col">Tanggal Pinjam</th>
-        <th scope="col">Batas Kembali</th>
+        <th scope="col">Nama Anggota</th>
         <th scope="col">Id Buku</th>
-        <th scope="col">Jumlah Buku</th>
+        <th scope="col">Judul Buku</th>
         <th scope="col">Id Petugas</th>
+        <th scope="col">Nama Petugas</th>
         <th scope="col">Tools</th>
       </tr>
     <tr>
 <?php
     $no=1;
-    $query=("SELECT * FROM peminjaman WHERE kode_peminjaman='$_GET[id]'");
+    $query=("SELECT * FROM View_peminjaman WHERE id_anggota='$_GET[id]'");
     $lihat = mysqli_query($con, $query) or die('Error, query failed. ' . mysqli_error());
     $jml_data=mysqli_num_rows($lihat);
     while($r=mysqli_fetch_array($lihat)){
@@ -60,15 +58,13 @@ include("connection.php");
         <tr>
         <td><?php echo"$no.";?></td>
         <td><?php echo"$r[id_anggota]";?></td>
-        <td><?php echo"$r[kode_peminjaman]";?></td>
-        <td><?php echo "$r[nama]";?></td>
-        <td><?php echo "$r[tanggal_pinjam]";?></td>
-        <td><?php echo "$r[batas_kembali]";?></td>
+        <td><?php echo "$r[nama_ang]";?></td>
         <td><?php echo "$r[id_buku]";?></td>
-        <td><?php echo "$r[jumlah_buku]";?></td>
+        <td><?php echo "$r[judul_buku]";?></td>
         <td><?php echo "$r[id_petugas]";?></td>
+        <td><?php echo "$r[nama_pet]";?></td>
         <td align="center"> 
-            <a href="delete_pinjam.php?halaman=pinjam_delete&kode_peminjaman=<?=$r['kode_peminjaman'];?>" title="Hapus Data" class="btn btn-danger btn-sm">Hapus data<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            <a href="delete_pinjam.php?halaman=pinjam_delete&id_anggota=<?=$r['id_anggota'];?>" title="Hapus Data" class="btn btn-danger btn-sm">Hapus data<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
         </td>
     
     </tr>
